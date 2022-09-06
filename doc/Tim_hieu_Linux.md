@@ -5,11 +5,17 @@ UNIX là một HĐH đa nhiệm, đa người dùng có kiến trúc nguyên kh�
 ![unix](https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg)
 Trái ngược với UNIX, Linux mặc dù vẫn dựa trên kiến trúc của Unix để xây dựng nhưng là 1 HDH mã nguồn mở, mới mục đích cung cấp người dùng 1 giải pháp miễn phí thay thế Unix. Linux coi Unix như đối thủ của mình.HDH Linux hiện nay là các HDH có nhân là Linux [được cung cấp trên trang chủ Kernel](https://www.kernel.org/). Do Linux chỉ cung cấp mã nguồn kernel mà không có trình biên dịch, lớp vỏ shell, không có bootloader, môi trường desktop,...
 Khi lấy nhân HDH Linux kết hợp với các phần còn thiếu, ta được các bản phân phối Linux như Ubuntu, Fedora, ArchLinux,....
+
+[Nguồn tham khảo wiki](https://vi.wikipedia.org/wiki/Linux)
 # Kiến trúc tổng quan hệ thống Linux: 
 
 Hệ điều hành là một phần mềm máy tính phức tạp để giúp người sử dụng có thể tương tác và điều khiển những phần cứng máy tính và các phần mềm chạy trên đó. Những hệ điều hành được xây dựng trên Linux Kernel được gọi là các distro (bản phân phối) của Linux.Cấu trúc của các distro Linux được chia làm 3 thành phần chính, đó là: Kernel Linux, Shell, Applications.
 ## Kernel Linux
-Đây là thành phần quan trọng của mọi hệ điều hành, và được ví như trái tim của HĐH, kernel sẽ chứa các module hay các thư viện để quản lý và giao tiếp giữa phần cứng máy tính và các ứng dụng.
+Kernel là thành phần cốt lõi của một hệ điều hành. Kernel bản chất là một chương trình máy tính, được khởi chạy trong quá trình khởi động của hệ thống (sau bootloader). Nó quản lý bộ nhớ, các thiết bị ngoại vi như bàn phím, chuột … và có quyền kiểm soát mọi thứ trong hệ thống.
+
+Chính vì là thành phần vô cùng quan trọng của một hệ điều hành, kernel thường được nạp vào một vùng nhớ riêng và được bảo vệ khỏi sự can thiệp từ các chương trình ứng dụng và từ các phần khác của hệ điều hành.
+
+Sự tách biệt giữa kernel và phần còn lại của hệ điều hành, dẫn tới việc chúng ta có 2 khái niệm quen thuộc khác khi học về Linux: kernel space và user space. Tất cả mọi hoạt động của kernel, ví dụ như khởi tạo các tiến trình, xử lý các ngắt (interupts), quản lý phần cứng … đều được hoạt động ở kernel space. Ngược lại, các thao tác của người dùng như chạy một chương trình, viết một đoạn văn trên trình soạn thảo văn bản được thực hiện ở user space. Việc tách biệt không gian hoạt động này tránh xung đột dữ liệu của kernel và dữ liệu của user, bảo vệ kernel khỏi sự tác động từ phía user space.
 ## Shell
 Đây là một chương trình có chức năng thực thi các lệnh (command) từ người dùng hoặc từ các ứng dụng yêu cầu, chuyển đến cho Kernel xử lý. Có thể hiểu Shell chính là trung gian nằm giữa Kernel và Application, có nhiệm vụ "phiên dịch" các lệnh từ Application gửi đến Kernel để thực thi.
 Các loại shell như sau:
