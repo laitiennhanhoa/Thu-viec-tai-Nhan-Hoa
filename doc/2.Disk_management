@@ -1,0 +1,31 @@
+# Disk management
+## kiểm tra tình trạng Disk
+```
+df -h
+```
+
+![df_h1]()
+
+## Kiểm tra phân vùng disk
+```
+lsblk
+```
+![lsblk]()
+
+## Thêm ổ cứng
+### Kiểm tra lại tình trạng ổ cứng
+
+Dùng lệnh `fdisk -l` để kiểm tra xem Linux gán cho ổ cứng mới device nào.
+
+![fdisk_1]()
+
+Hệ thống đã nhận ổ mới 5Gb được gán vào /dev/sdb và chưa được định dạng. 
+Khi dùng lệnh fdisk /dev/sda, sẽ xuất hiện chế độ gõ lệnh của fdisk, ấn m để đưa ra các hướng dẫn về lệnh của fdisk. Chọn n để thêm một partition mới.
+
+![fdisk_2]()
+
+Sau khi chọn n, xuất hiện 1 số lựa chọn như:
+
+* p để tạo primary partition – phân vùng có thể boot được.
+* e để tạo một phân vùng extended.
+Đến đây ta chọn p. Sau khi chọn p, chương trình sẽ hỏi Partition number (1-4), gõ số 1.
