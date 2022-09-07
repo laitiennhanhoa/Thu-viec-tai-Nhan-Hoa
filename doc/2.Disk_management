@@ -4,25 +4,25 @@
 df -h
 ```
 
-![df_h1]()
+![df_h1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/093ef75f35f539a60664e542d4ca9c1bdd9e4a1a/images/df_h1.png)
 
 ## Kiểm tra phân vùng disk
 ```
 lsblk
 ```
-![lsblk]()
+![lsblk](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/093ef75f35f539a60664e542d4ca9c1bdd9e4a1a/images/lsblk.png)
 
 ## Thêm ổ cứng
 ### Kiểm tra lại tình trạng ổ cứng
 
 Dùng lệnh `fdisk -l` để kiểm tra xem Linux gán cho ổ cứng mới device nào.
 
-![fdisk_1]()
+![fdisk_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/093ef75f35f539a60664e542d4ca9c1bdd9e4a1a/images/fdisk_1.png)
 
 Hệ thống đã nhận ổ mới 5Gb được gán vào /dev/sdb và chưa được định dạng. 
 Khi dùng lệnh fdisk /dev/sda, sẽ xuất hiện chế độ gõ lệnh của fdisk, ấn m để đưa ra các hướng dẫn về lệnh của fdisk. Chọn n để thêm một partition mới.
 
-![fdisk_2]()
+![fdisk_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/093ef75f35f539a60664e542d4ca9c1bdd9e4a1a/images/fdisk_2.png)
 
 Sau khi chọn n, xuất hiện 1 số lựa chọn như:
 
