@@ -139,7 +139,7 @@ Nhập tên foder xong nhấn `Create directory`.
 
 * Bước 2 : Trong thư mục vừa tạo nhấn `Upload` , chọn file đuôi .iso để đẩy lên server.
 
-[Upload_ISO](images\Upload_ISO.png)
+[Upload_ISO](\images\Upload_ISO.png)
 
 * Bước 3 : Tạo máy ảo
 
