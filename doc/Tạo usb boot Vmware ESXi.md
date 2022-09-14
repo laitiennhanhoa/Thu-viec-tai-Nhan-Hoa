@@ -143,5 +143,45 @@ Nhập tên foder xong nhấn `Create directory`.
 
 * Bước 3 : Tạo máy ảo
 
-__Tạo máy ảo trên trình duyệt__
+### Tạo máy ảo trên trình duyệt
 
+ * Bước 1 : Trong mục `Virtual Machines` , chọn mục `Create / Register VM` 
+ * Bước 2 : Trong trang tạo máy ảo mới, nhấn `Next`, nhập tên máy ảo mới và các tùy chọn tương ứng, nhấn `Next`
+
+ [setup_CentOS](images\setup_CentOS.png)
+
+ * Bước 3 : Chọn nơi lưu trữ
+
+ [setup_CentOS12](images\setup_CentOS12.png)
+
+ * Bước 4 : Cấu hình các thông số cho máy ảo, sau đó nhấn `Next`
+
+ [setup_CentOS3](images\setup_CentOS3.png)
+
+ __Lưu ý_ : Mục `CD/DVD Driver 1` ta chọn đúng file iso đã tải lên trên
+
+ [setup_CentOS4](images\setup_CentOS4.png)
+
+ * Bước 5 :  Rà soát các thông số lần cuối cùng, sau đó nhấn `Finish`
+
+ Máy ảo đã được tạo
+ [setup_CentOS6](images\setup_CentOS6.png)
+
+### Tạo máy ảo trên VMware Workstation
+
+ * Bước 1 : Kết nối VMware Workstation với VMware ESXi
+ 
+ [setup_Win10](images\setup_Win10.png)
+ 
+ * Bước 2 : Sau khi kết nối thành công, chọn `Create a new vitual machine`
+
+ 
+
+ * Bước 3 : Tạo máy ảo với các bước như bình thường, đến mục cấu hình phần cứng, mục `New CD/DVD (SATA)` ta chọn file iso đã upload lên server.
+
+ [setup_Win10_3](images\setup_Win10_3.png)
+
+ * Bước 4 :  Rà soát các thông số lần cuối cùng, sau đó nhấn `Finish`
+
+
+ 
