@@ -126,3 +126,22 @@ trong đó có link url : https://172.16.3.139 (ip cấu hình cho host VMware).
 Sau khi đăng nhập, ta truy cập được trang quản trị server VMware.
 
 [mai_vmware](images\mai_vmware.png)
+
+# Tạo máy ảo trên VMware ESXi 7.0
+
+## Tạo thư mục lưu trữ file ISO
+
+* Bước 1 : Chọn Storage, chọn mục `Datastore browser` -> `Create directory`
+
+[Create_directory](images\Create_directory.png)
+
+Nhập tên foder xong nhấn `Create directory`.
+
+* Bước 2 : Trong thư mục vừa tạo nhấn `Upload` , chọn file đuôi .iso để đẩy lên server.
+
+[Upload_ISO](images\Upload_ISO.png)
+
+* Bước 3 : Tạo máy ảo
+
+__Tạo máy ảo trên trình duyệt__
+
