@@ -32,3 +32,8 @@ Kết quả như ảnh.
 Bước 8 : Tiến hành cài đặt
 
 ![8]()
+
+Sau khi cài đặt xong, máy sẽ tự reboot và chuyển sang giao diện setup ban đầu, sau khi tạo và đăng nhập tài khoản thì ta đã cài xong windows 10.
+
+
+# Đổi password khi quên pass
