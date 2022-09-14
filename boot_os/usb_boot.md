@@ -1,1 +1,0 @@
-Tạo usb boot
