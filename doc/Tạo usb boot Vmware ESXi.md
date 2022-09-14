@@ -133,7 +133,7 @@ Sau khi đăng nhập, ta truy cập được trang quản trị server VMware.
 
 * Bước 1 : Chọn Storage, chọn mục `Datastore browser` -> `Create directory`
 
-![Create_directory](images\Create_directory.png)
+![Create_directory](\images\Create_directory.png)
 
 Nhập tên foder xong nhấn `Create directory`.
 
