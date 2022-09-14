@@ -133,13 +133,13 @@ Sau khi đăng nhập, ta truy cập được trang quản trị server VMware.
 
 * Bước 1 : Chọn Storage, chọn mục `Datastore browser` -> `Create directory`
 
-![Create_directory](\images\Create_directory.png)
+![Create_directory](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/dcc31a16d6e80d8f655bfb5176903760bc37d80d/images/Create_directory.png)
 
 Nhập tên foder xong nhấn `Create directory`.
 
 * Bước 2 : Trong thư mục vừa tạo nhấn `Upload` , chọn file đuôi .iso để đẩy lên server.
 
-![Upload_ISO](\images\Upload_ISO.png)
+![Upload_ISO](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/dcc31a16d6e80d8f655bfb5176903760bc37d80d/images/Upload_ISO.png)
 
 * Bước 3 : Tạo máy ảo
 
@@ -148,7 +148,7 @@ Nhập tên foder xong nhấn `Create directory`.
  * Bước 1 : Trong mục `Virtual Machines` , chọn mục `Create / Register VM` 
  * Bước 2 : Trong trang tạo máy ảo mới, nhấn `Next`, nhập tên máy ảo mới và các tùy chọn tương ứng, nhấn `Next`
 
- ![setup_CentOS](images\setup_CentOS.png)
+ ![setup_CentOS]()
 
  * Bước 3 : Chọn nơi lưu trữ
 
