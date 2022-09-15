@@ -57,4 +57,3 @@ Sau khi reboot xong, hệ thống hiển thị màn hình đăng nhập.
 # Gỡ ổ đĩa
 
 # Sao lưu và khôi phục
-

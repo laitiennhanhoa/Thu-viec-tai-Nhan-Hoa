@@ -45,3 +45,47 @@ Sau khi tạo và đăng nhập tài khoản thì ta đã cài xong windows 10.
 
 
 # Đổi password khi quên pass
+
+Khi quên pass đăng nhập vào windows 10, để xử lý, ta tận dụng lỗ hổng của Utilman.exe trên windows. 
+Nguyên lý thực hiện : Utilman là một ứng dụng trên windows được thiết kế để người dùng có thể tùy chỉnh các trợ năng hỗ trợ người khuyết tật (người khiếm thị, khiếm thính hoặc hạn chế về khả năng vận động) có thể tự đăng nhập vào windows mà không cần sự trợ giúp từ bên ngoài. Nhưng đây là một lỗ hổng bảo mật có thể khai thác được để vượt qua yêu cầu đăng nhập của Windows.
+
+__Utilman có thể khởi chạy ngay cả khi người dùng chưa đăng nhập vào windows bằng cách nhấn phím `Windows Key + U` hoặc biểu tượng bánh xe, bằng cách này, nếu chúng ta hoán đổi Utilman.exe với file thực thi khác như cmd.exe thì chúng ta có quyền truy cập công cụ dòng lệnh của windows với tài khoản có đặc quyền cao nhất (tương tự user `root` trên Linux).__
+
+Các bước thực hiện :
+
+__Giai đoạn 1 : Thay thế file Utilman.exe (trên ổ C của Windows) bằng file cmd.exe (trên usb boot windows)
+
+* Bước 1 :  Trong giao diện màn hình đăng nhập, nhấn giữ phím `Shift` và chọn `Restart` -> `Restart anyway`
+
+![9.1]()
+
+Bước 2 : Chọn `Use a device`
+
+![9.2]()
+
+* Bước 3 : Chọn `Next`
+
+![9.3]()
+
+* Bước 4 : Chọn `Next`
+
+![setup_Win10_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/74d05bc9c4ab19c5817c4d907443e798b7c97acc/images/setup_Win10_4.png)
+
+* Bước 5 : Chọn `Repair your computer`
+
+![9.5]()
+
+* Bước 6 : Chọn `Troubleshoot`
+
+![9.6]()
+
+* Bước 7 : Chọn `Command Propt`
+
+![9.7]()
+
+
+# Thêm ổ đĩa
+
+# Gỡ ổ đĩa
+
+# Sao lưu và khôi phục
