@@ -36,3 +36,17 @@ Bước 7 : Tiến hành cài đặt
 
 Sau khi cài đặt xong, máy sẽ tự reboot và chuyển sang giao diện setup ban đầu. 
 
+Điền các thông tin theo trình tự là hoàn thành việc cài đặt :
+ 
+__Set account Admin__ 
+
+![8.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/win_server_19/8.1.png)
+
+Ấn `Finish` và đăng nhập vào hệ thống, đây lag giao diện sau khi đăng nhập.
+
+![8.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/win_server_19/8.2.png)
+
+# Đổi password khi quên pass
+
+Xử lý theo lỗ hổng leo thang đặc quyền từ Utilman như trên Windows 10 : https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/doc/Cài đặt Win10.md
+
