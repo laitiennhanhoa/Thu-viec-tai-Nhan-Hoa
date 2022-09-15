@@ -103,7 +103,7 @@ touch /.autorelabel
 
 ![9.7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/9.7.png)
 
-# Thêm ổ đĩarebot
+# Thêm ổ đĩa
 
 # Gỡ ổ đĩa
 
