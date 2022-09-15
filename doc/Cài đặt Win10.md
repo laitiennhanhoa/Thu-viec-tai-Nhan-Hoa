@@ -57,15 +57,15 @@ __Giai đoạn 1 : Thay thế file Utilman.exe thành file cmd.exe
 
 * Bước 1 :  Trong giao diện màn hình đăng nhập, nhấn giữ phím `Shift` và chọn `Restart` -> `Restart anyway`
 
-![9.1]()
+![9.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.1.png)
 
 Bước 2 : Chọn `Use a device`
 
-![9.2]()
+![9.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.2.png)
 
 * Bước 3 : Chọn `EFI VMware Virtual SATA CDROM Drive`
 
-![9.3]()
+![9.3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.3.png)
 
 * Bước 4 : Chọn `Next`
 
@@ -73,15 +73,15 @@ Bước 2 : Chọn `Use a device`
 
 * Bước 5 : Chọn `Repair your computer`
 
-![9.5]()
+![9.5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.5.png)
 
 * Bước 6 : Chọn `Troubleshoot`
 
-![9.6]()
+![9.6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.6.png)
 
 * Bước 7 : Chọn `Command Propt`
 
-![9.7]()
+![9.7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.7.png)
 
 * Bước 8 : Mở phân vùng Windows bằng lệnh 
 ```
@@ -105,11 +105,11 @@ Thay thế Utilman bằng Command Prompt
 copy cmd.exe Utilman.exe
 ```
 
-![9.8]()
+![9.8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.8.png)
 
 Sau khi chạy xong lệnh trên, ta có kết quả như hình, đóng cửa sổ cmd và chọn `Continue` .
 
-![9.2]()
+![9.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.2.png)
 
 __Giai đoạn 2 : Đổi password bằng Utilman 
 
@@ -121,7 +121,7 @@ __Ví dụ__ : đổi password acc
 net user nhanhoa 123abc@A ( nhanhoa là acc người dùng, 123abc@A là password mới )
 ```
 
-![9.9]()
+![9.9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.9.png)
 
 Sau đó ta đăng nhập bằng pass vừa đổi.
 
