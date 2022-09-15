@@ -53,7 +53,7 @@ __Utilman có thể khởi chạy ngay cả khi người dùng chưa đăng nh�
 
 Các bước thực hiện :
 
-__Giai đoạn 1 : Thay thế file Utilman.exe (trên ổ C của Windows) bằng file cmd.exe (trên usb boot windows)
+__Giai đoạn 1 : Thay thế file Utilman.exe thành file cmd.exe
 
 * Bước 1 :  Trong giao diện màn hình đăng nhập, nhấn giữ phím `Shift` và chọn `Restart` -> `Restart anyway`
 
@@ -63,7 +63,7 @@ Bước 2 : Chọn `Use a device`
 
 ![9.2]()
 
-* Bước 3 : Chọn `Next`
+* Bước 3 : Chọn `EFI VMware Virtual SATA CDROM Drive`
 
 ![9.3]()
 
@@ -82,6 +82,48 @@ Bước 2 : Chọn `Use a device`
 * Bước 7 : Chọn `Command Propt`
 
 ![9.7]()
+
+* Bước 8 : Mở phân vùng Windows bằng lệnh 
+```
+C:
+```
+Truy cập thư viện Windows :
+
+```
+cd windows\system32
+```
+
+Đổi tên file  chương trình Utilman nhằm mục đích phục hồi tiện ích sau này :
+
+```
+ren utilman.exe utilman.exe.bak
+```
+
+Thay thế Utilman bằng Command Prompt
+
+```
+copy cmd.exe Utilman.exe
+```
+
+![9.8]()
+
+Sau khi chạy xong lệnh trên, ta có kết quả như hình, đóng cửa sổ cmd và chọn `Continue` .
+
+![9.2]()
+
+__Giai đoạn 2 : Đổi password bằng Utilman 
+
+Bước 9 : Sau khi windows hoàn tất khởi động, nhấn phím `Windows Key + U` hoặc biểu tượng bánh xe sẽ vào được Command Prompt với acc có quyền hạn cao nhất (Administrator), vì vậy ta có thể đổi pass hoặc thêm mới/xóa người dùng bằng lệnh `net user` , thêm người dùng vào nhóm Administrators bằng lệnh `net localgroup Administrators` . 
+
+__Ví dụ__ : đổi password acc
+
+```
+net user nhanhoa 123abc@A ( nhanhoa là acc người dùng, 123abc@A là password mới )
+```
+
+![9.9]()
+
+Sau đó ta đăng nhập bằng pass vừa đổi.
 
 
 # Thêm ổ đĩa
