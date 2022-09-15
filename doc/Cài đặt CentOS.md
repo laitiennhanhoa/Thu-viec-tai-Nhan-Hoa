@@ -52,6 +52,7 @@ Sau khi reboot xong, hệ thống hiển thị màn hình đăng nhập.
 
 # Đổi password khi quên pass
 
+
 # Thêm ổ đĩa
 
 # Gỡ ổ đĩa
