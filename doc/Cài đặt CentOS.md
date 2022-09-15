@@ -51,3 +51,10 @@ Sau khi reboot xong, hệ thống hiển thị màn hình đăng nhập.
 ![8.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/bfe2f5f06eaac5afb0b0d1c088d18a64f96abc80/images/CentOS_7/8.1.png)
 
 # Đổi password khi quên pass
+
+# Thêm ổ đĩa
+
+# Gỡ ổ đĩa
+
+# Sao lưu và khôi phục
+
