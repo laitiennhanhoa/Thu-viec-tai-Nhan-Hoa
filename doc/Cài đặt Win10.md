@@ -53,7 +53,7 @@ __Utilman có thể khởi chạy ngay cả khi người dùng chưa đăng nh�
 
 Các bước thực hiện :
 
-__Giai đoạn 1 : Thay thế file Utilman.exe thành file cmd.exe
+__Giai đoạn 1__ : Thay thế file Utilman.exe thành file cmd.exe
 
 * Bước 1 :  Trong giao diện màn hình đăng nhập, nhấn giữ phím `Shift` và chọn `Restart` -> `Restart anyway`
 
@@ -111,7 +111,7 @@ Sau khi chạy xong lệnh trên, ta có kết quả như hình, đóng cửa s�
 
 ![9.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.2.png)
 
-__Giai đoạn 2 : Đổi password bằng Utilman 
+__Giai đoạn 2__ : Đổi password bằng Utilman 
 
 Bước 9 : Sau khi windows hoàn tất khởi động, nhấn phím `Windows Key + U` hoặc biểu tượng bánh xe sẽ vào được Command Prompt với acc có quyền hạn cao nhất (Administrator), vì vậy ta có thể đổi pass hoặc thêm mới/xóa người dùng bằng lệnh `net user` , thêm người dùng vào nhóm Administrators bằng lệnh `net localgroup Administrators` . 
 
