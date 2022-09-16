@@ -42,7 +42,7 @@ __Set account Admin__
 
 ![8.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/win_server_19/8.1.png)
 
-Ấn `Finish` và đăng nhập vào hệ thống, đây lag giao diện sau khi đăng nhập.
+Ấn `Finish` và đăng nhập vào hệ thống, đây la giao diện sau khi đăng nhập.
 
 ![8.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/win_server_19/8.2.png)
 

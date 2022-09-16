@@ -128,6 +128,27 @@ Sau đó ta đăng nhập bằng pass vừa đổi.
 
 # Thêm ổ đĩa
 
+Thêm 1 ổ đĩa mới khoảng 50GB trên máy ảo VMware với tên là Hard disk 2.
+
+![10.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/10.1.png)
+
+Nhấn `Windows Key + X` , chọn `Disk Management`
+
+![10.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.2.png)
+
+Trong cửa sổ `Disk Management` , chọn chuẩn phân vùng cho ổ đĩa mới là __GPT__ sau đó chia ổ đĩa bằng cách : Click chuột phải vào `Disk 1` chọn `New Simple Volume...` -> `Next` 
+
+![10.3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.3.png)
+
+Ở cửa sổ chia ổ đĩa, ta có thể thiết lập dung lượng ổ mới (tối đa = dung lượng trống của ổ đĩa). Sau đó nhấn `Next` -> `Next`.
+
+Rà soát lại kiểu dữ liệu, kích thước khối và tên phân vùng, nhấn `Next` =>`Finish`.
+
+![10.4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.4.png)
+
+Kiểm tra lại thấy windows đã nhận ổ cứng.
+
+![10.5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.5.png)
 # Gỡ ổ đĩa
 
 # Sao lưu và khôi phục
