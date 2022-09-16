@@ -103,8 +103,61 @@ touch /.autorelabel
 
 ![9.7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/9.7.png)
 
+
 # Thêm ổ đĩa
 
+Kiểm tra tình trạng ổ cứng
+
+![10.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.1.png)
+
+Hiện mới có ổ sda được nhận với dung lượng 50GB
+Add ổ đĩa mới vào máy ảo CentOS trên VMware, sau khi add ta kiểm tra lại kết quả như sau.
+
+![10.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.2.png)
+
+Ta thấy đã có thêm ổ đĩa sdb với dung lượng 20GB.
+
+ * Kiểm tra lại tên ổ cứng : `fdisk -l`
+
+ ![10.3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.3.png)
+
+* Định dạng ổ cứng : `fdisk /dev/sdb`
+
+![10.4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.4.png)
+
+* Chia ổ cứng : nhấn `n` -> `p` ->`w`
+
+![10.5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.5.png)
+
+* Kiểm tra lại xem hệ thống đã nhận ổ cứng chưa :  `fdisk -l`
+
+![10.6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.6.png)
+
+* Tạo thư mục và mount thư mục với ổ cứng vửa tạo : 
+```
+mkdir bakup
+
+mount /dev/sdb1/ /root/backup/
+```
+![10.7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.7.png)
+
+* Mount bằng UUID : Check UUID và mount và file fstap
+```
+lsblk -o NAME,UUID,SIZE
+
+echo "UUID=32c77f09-898d-4195-aaf7-e27f0e22db87      /root/backup/   ext4    defaults     0   0" >> "/etc/fstab"
+```
+
+![10.8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.8.png)
+
 # Gỡ ổ đĩa
+
+Trước khi tháo ổ đĩa, ta phải unmoune thư mục với ổ đĩa 
+
+```
+umount /dev/sdb1/
+```
+
+![10.9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/CentOS_7/10.9.png)
 
 # Sao lưu và khôi phục
