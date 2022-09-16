@@ -64,7 +64,7 @@ Một số loại Hardware RAID hiện nay :
 
 > Dell PERC H730P RAID Controller Adapter
 
-# Các cấp độ RAID (RAID levels) [](https://dzone.com/articles/what-is-raid-in-linux#:~:text=Working%20of%20RAID%20in%20Linux,of%20the%20disks%20may%20vary.)
+# Các cấp độ RAID (RAID levels) [1](https://dzone.com/articles/what-is-raid-in-linux#:~:text=Working%20of%20RAID%20in%20Linux,of%20the%20disks%20may%20vary.)
 
 ## RAID 0 
 
