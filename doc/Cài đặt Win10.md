@@ -130,7 +130,7 @@ Sau đó ta đăng nhập bằng pass vừa đổi.
 
 Thêm 1 ổ đĩa mới khoảng 50GB trên máy ảo VMware với tên là Hard disk 2.
 
-![10.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/10.1.png)
+![10.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.1.png)
 
 Nhấn `Windows Key + X` , chọn `Disk Management`
 

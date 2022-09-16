@@ -31,7 +31,9 @@ Nhược điểm :
 * không hỗ trợ nhiều cấp độ RAID và tính năng mở rộng
 
 Một số Software RAID hiện nay :
+
 > Windows : Storage Space
+
 > Linux : mdadm
 
 ## Hardware RAID
@@ -59,6 +61,7 @@ Nhược điểm :
 Một số loại Hardware RAID hiện nay :
 
 > LSI MegaRAID
+
 > Dell PERC H730P RAID Controller Adapter
 
 # Các cấp độ RAID (RAID levels) [1](https://dzone.com/articles/what-is-raid-in-linux#:~:text=Working%20of%20RAID%20in%20Linux,of%20the%20disks%20may%20vary.)
