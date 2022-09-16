@@ -68,3 +68,24 @@ Một số loại Hardware RAID hiện nay :
 
 ## RAID 0 
 
+RAID 0 cần ít nhất 2 ổ đĩa. RAID 0 cho phép máy tính ghi dữ liệu lên chúng theo một phương thức đặc biệt được gọi là Striping. Ví dụ bạn có 8 đoạn dữ liệu được đánh số từ 1 đến 8, các đoạn đánh số lẻ (1,3,5,7) sẽ được ghi lên đĩa cứng đầu tiên và các đoạn đánh số chẵn (2,4,6,8) sẽ được ghi lên đĩa thứ hai. Để đơn giản hơn, bạn có thể hình dung mình có 100MB dữ liệu và thay vì dồn 100MB vào một đĩa cứng duy nhất, RAID 0 sẽ giúp dồn 50MB vào mỗi đĩa cứng riêng giúp giảm một nửa thời gian làm việc theo lý thuyết. Từ đó bạn có thể dễ dàng suy ra nếu có 4, 8 hay nhiều đĩa cứng hơn nữa thì tốc độ sẽ càng cao hơn.
+
+* Ưu điểm: Tăng tốc độ đọc / ghi đĩa: mỗi đĩa chỉ cần phải đọc / ghi 1/n lượng dữ liệu được yêu cầu với n là số ổ đĩa được cấu hình RAID 0. Về lý thuyết thì tốc độ sẽ tăng n lần.
+Dung lượng của RAID 0 = Dung lượng của ổ đĩa nhỏ nhất x Số lượng ổ đĩa
+
+* Nhược điểm: Tính an toàn thấp. Nếu một đĩa bị hư thì dữ liệu trên tất cả các đĩa còn lại sẽ không còn sử dụng được. Xác suất để mất dữ liệu sẽ tăng n lần so với dùng ổ đĩa đơn.
+
+![3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/3.jpg)
+
+> Do không có khả năng chịu lỗi nên không thể thay thế ổ đĩa khi RAID bị lỗi
+
+## RAID 1
+
+RAID 1 đòi hỏi ít nhất hai đĩa cứng để làm việc. Dữ liệu được ghi vào 2 ổ giống hệt nhau (Mirroring). Trong trường hợp một ổ bị trục trặc, ổ còn lại sẽ tiếp tục hoạt động bình thường. Bạn có thể thay thế ổ đĩa bị hỏng mà không phải lo lắng đến vấn đề thông tin thất lạc.
+
+* Ưu điểm : có khả năng chịu lỗi. Nếu 1 ổ cứng bị hỏng thì không bị mất dữ liệu và hệ thống vẫn hoạt động.
+
+* Nhược điểm : tốc độ truy xuất không cao, dung lượng của RAID = Dung lượng ổ đĩa nhỏ nhất.
+
+![4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/4.jpg)
+
