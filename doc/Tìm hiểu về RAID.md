@@ -83,14 +83,37 @@ Dung lượng của RAID 0 = Dung lượng của ổ đĩa nhỏ nhất x Số l
 
 RAID 1 đòi hỏi ít nhất hai đĩa cứng để làm việc. Dữ liệu được ghi vào 2 ổ giống hệt nhau (Mirroring). Trong trường hợp một ổ bị trục trặc, ổ còn lại sẽ tiếp tục hoạt động bình thường. Bạn có thể thay thế ổ đĩa bị hỏng mà không phải lo lắng đến vấn đề thông tin thất lạc.
 
-* Ưu điểm : có khả năng chịu lỗi. Nếu 1 ổ cứng bị hỏng thì không bị mất dữ liệu và hệ thống vẫn hoạt động.
+* Ưu điểm : có khả năng chịu lỗi. Nếu 1 ổ cứng bị hỏng thì không bị mất dữ liệu và hệ thống vẫn hoạt động. Thời gian xây dựng lại ổ đĩa nhanh. Hiệu suất đọc cao.
 
-* Nhược điểm : tốc độ truy xuất không cao, dung lượng của RAID = Dung lượng ổ đĩa nhỏ nhất.
+* Nhược điểm : Dung lượng của RAID = Dung lượng ổ đĩa nhỏ nhất. Hiệu xuất ghi chậm.
 
 ![RAID_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_1.gif)
+
+Khi sử dụng RAID 1, nếu 1 ổ bị lỗi
 
 ## RAID 10
 
 Là sự kết hợp giữa RAID 0 và RAID 1
 
+* Ưu điểm : Tốc độ đọc ghi nhanh, có khả năng chịu lỗi, hiệu suất đọc ghi cao, thời gian xây dựng lại nhanh chóng
+
+* Nhược điểm : Dung lượng lưu trữ thấp
+
 ![RAID_10](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_10.gif)
+
+## RAID 5
+
+RAID 5 là sự cải tiến của RAID 0,có cung cấp cơ chế khôi phục dữ liệu, các Parity dùng để khôi phục dữ liệu được phân bố đồng đều trên tất cả các ổ đĩa cứng.
+
+Giả sử dữ liệu X được phân tách thành 3 phần A, B, C (Xem hình minh hoạ RAID 5), khi đó dữ liệu được chia thành 3 phần chứa trên các ổ đĩa cứng 0, 1, 2 (giống như RAID 0). Phần ổ đĩa cứng thứ 3 chứa Parity (A-C) của A B C để khôi phục dữ liệu có thể sẽ mất ở ổ đĩa cứng 0, 1, 2.
+
+Dữ liệu Y được chia thành D E F và Parity của nó là D-F, theo thứ tự D E F được lưu trữ tại ổ 0 1 3, và D-F được lưu trữ tại ổ 2. Các Parity được lưu trữ tuần tự trên các ổ đĩa cứng. RAID 5 cho phép tối đa có 1 ổ cứng bị chết tại một thời điểm, nếu có nhiều hơn 1 ổ cứng bị chết tại một thời điểm thì toàn bộ dữ liệu coi như mất hết. RAID 5 cũng yêu cầu các ổ cứng tham gia RAID phải có dung lượng bằng nhau.
+
+* Ưu điểm : Hiêu suất đọc cao, bảo vệ được dữ liệu với dung lượng khả dụng thấp nhất.
+
+* Nhược điểm : thời gian gây dựng lại ổ khi xảy ra lỗi chậm, hiệu suất ghi thấp.
+
+![RAID_5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_5.gif)
+
+Ngoài ra có một số loại RAID ít phổ biến hơn như RAID 4, RAID 6, RAID 50, RAID 60.
+
