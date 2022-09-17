@@ -147,6 +147,22 @@ Ngoài ra có ổ đĩa mới chưa cấu hình trong trạng thái sẵn sàng.
 ![r5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore5.png)
 ## Thực hành Restore RAID 1
 
-Từ giao diện Config RAID của hệ thống, chuyển qua thẻ `PD Mgmt` . Chọn ổ cứng 
+Từ giao diện Config RAID của hệ thống, chuyển qua thẻ `PD Mgmt` . Chọn ổ cứng có trạng `Ready` , nhấn `F2` để mở menu cấu hình.
 
+![r6_0](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore6_0.png)
 
+Trong menu trên, chọn mục `Make Global HS` , nhấn `Enter`
+
+![r6_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore6_1.png)
+
+Sau khi chọn, ổ cứng trên trong trạng thái `Rebuild`.
+
+![r6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore6.png)
+
+Kiểm tra lại bằng cách trở về thẻ `VD Mgmt` , ta thấy đã có 2 ổ trong `Virtual Disks` trong đó có 1 ổ trạng thái `Rebuild` , khi thanh trạng thái đạt 100% thì đã restore RAID 1 thành công.
+
+![r7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore7.png)
+
+![r8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore8.png)
+
+__Lưu ý__ : Mỗi hệ thống/phần cứng và RAID levels có cách restore khác nhau , cần tìm hiểu kỹ trước khi thực hiện.
