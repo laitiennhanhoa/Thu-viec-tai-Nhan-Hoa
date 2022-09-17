@@ -75,7 +75,7 @@ Dung lượng của RAID 0 = Dung lượng của ổ đĩa nhỏ nhất x Số l
 
 * Nhược điểm: Tính an toàn thấp. Nếu một đĩa bị hư thì dữ liệu trên tất cả các đĩa còn lại sẽ không còn sử dụng được. Xác suất để mất dữ liệu sẽ tăng n lần so với dùng ổ đĩa đơn.
 
-![3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/3.jpg)
+![RAID_0](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_0.gif)
 
 > Do không có khả năng chịu lỗi nên không thể thay thế ổ đĩa khi RAID bị lỗi
 
@@ -88,4 +88,8 @@ RAID 1 đòi hỏi ít nhất hai đĩa cứng để làm việc. Dữ liệu đ
 * Nhược điểm : tốc độ truy xuất không cao, dung lượng của RAID = Dung lượng ổ đĩa nhỏ nhất.
 
 ![4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/4.jpg)
+
+## RAID 10
+
+Là sự kết hợp giữa RAID 0 và RAID 1
 
