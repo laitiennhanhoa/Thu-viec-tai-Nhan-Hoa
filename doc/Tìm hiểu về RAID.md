@@ -87,9 +87,10 @@ RAID 1 đòi hỏi ít nhất hai đĩa cứng để làm việc. Dữ liệu đ
 
 * Nhược điểm : tốc độ truy xuất không cao, dung lượng của RAID = Dung lượng ổ đĩa nhỏ nhất.
 
-![4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/4.jpg)
+![RAID_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_1.gif)
 
 ## RAID 10
 
 Là sự kết hợp giữa RAID 0 và RAID 1
 
+![RAID_10](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/RAID_10.gif)
