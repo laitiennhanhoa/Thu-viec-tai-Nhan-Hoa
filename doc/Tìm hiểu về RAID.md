@@ -117,3 +117,36 @@ Dữ liệu Y được chia thành D E F và Parity của nó là D-F, theo th�
 
 Ngoài ra có một số loại RAID ít phổ biến hơn như RAID 4, RAID 6, RAID 50, RAID 60.
 
+# Khôi phục dữ liệu RAID 1 khi 1 ổ bị lỗi
+
+__Phần cứng__ : 
+* Sử dụng PERC H710 của Dell [chi tiết](https://www.dell.com/support/home/en-vn/product-support/product/poweredge-rc-h710/docs)
+
+* 2 Ổ đĩa SSD 480GB SamSung MZ7L7LH480 [Chi tiết](https://semiconductor.samsung.com/ssd/datacenter-ssd/pm883/mz7lh480hahq/)
+
+## Chuẩn bị 
+
+Sau khi cài RAID 1 lên cả 2 ổ đĩa, kiểm tra lại kết quả như ảnh
+
+![r1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore1.png)
+
+Sau khi cài RAID 1 có cài Vmware ESXi 7.0
+
+![r2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore2.png)
+
+Sau đó tắt server và tháo 1 ổ ra và formart lại phân vùng bằng windows. Sau đó cắm lại vào server và kiểm tra lại
+
+![r3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore3.png)
+
+Ta thấy trên ổ cứng ảo máy chủ có phân vùng RAID 1 nhưng chỉ còn 1 ổ đĩa. 
+
+![r4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore4.png)
+
+Ngoài ra có ổ đĩa mới chưa cấu hình trong trạng thái sẵn sàng.
+
+![r5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/RAID/restore5.png)
+## Thực hành Restore RAID 1
+
+Từ giao diện Config RAID của hệ thống, chuyển qua thẻ `PD Mgmt` . Chọn ổ cứng 
+
+
