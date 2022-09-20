@@ -14,6 +14,23 @@ Tuy nhiên, mỗi website đều có một địa chỉ IP là các con số kh�
 
 Nói cách khác, DNS cũng giống như một danh bạ điện thoại dành riêng cho Internet. Nếu bạn biết tên của một người nhưng không biết số điện thoại hay ngược lại, bạn có thể tham khảo trong sổ danh bạ dễ dàng.
 
+# Kiến trúc
+
+DNS là một cơ sở dữ liệu phân tán phân tầng và kết hợp với tập các giao thức xác định:
+
+* Cơ chế truy vấn và cập nhật cơ sở dữ liệu
+
+* Cơ chế sao chép thông tin trong cơ sở dữ liệu giữa các máy chủ
+
+* Một lược đồ cơ sở dữ liệu
+
+## Cấu trúc của hệ thống tên miền:
+
+Hiện nay hệ thống tên miền trên thế giới được phân bố theo cấu trúc hình cây. tên miền cấp cao nhất là tên miền gốc (ROOT) được thể hiện bằng dấu “.”.
+Dưới tên miền gốc có hai loại tên miền là: tên miền cấp cao dùng chung- gTLDs (generic Top Level Domains) và tên miền cấp cao quốc gia – ccTLD (country code Top Level Domains) như .vn, .jp, .kr, .…
+
+![7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/DNS/7.png)
+
 ## Tra cứu thông tin 
 
 Dùng trang `https://infowebstats.com/dns-lookup` để tra cứu thông tin DNS của 1 domain
@@ -83,10 +100,5 @@ __VD__ : nhanhoa.com   	    IN  A	    	103.28.36.250
 ![6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/DNS/6.png)
 
 
-Nguồn tham khảo 1[1](https://blog.cloud365.vn/linux/dns-record/#2-ns-name-server) và 2[2](https://zonedns.vn/faq.html)
+Nguồn tham khảo 1[1](https://blog.cloud365.vn/linux/dns-record/#2-ns-name-server),  2[2](https://zonedns.vn/faq.html) và 3[3](https://whitedelphi.blogspot.com/2017/10/kientruc-dns-kientruc-dns-domain-name.html)
 
-# Cài đặt DNS Server
-
-## Trên Linux
-
-## Trên windows server
