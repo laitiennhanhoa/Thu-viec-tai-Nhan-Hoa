@@ -80,7 +80,7 @@ Truy cập thử bằng cách nhập IP web server.
  vi /etc/httpd/conf/httpd.conf
  ```
 
-## Virtual Hosts trên Apache
+### Virtual Hosts trên Apache
 
 Virtual Hosts được sử dụng để giúp cho một web server có thể chạy được nhiều website khác nhau. Các bước tạo Virtual Hosts : 
 
@@ -153,4 +153,164 @@ Trên trình duyệt nhập `tienlk.com`
 
 ![VPS_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/VPS_3.png)
 
+## Cài đặt MariaDB
 
+MariaDB là một sản phẩm mã nguồn mở tách ra từ mã mở do cộng đồng phát triển của hệ quản trị cơ sở dữ liệu quan hệ MySQL nhằm theo hướng không phải trả phí với GNU GPL. MariaDB được phát triển với sự dẫn dắt của những nhà phát triển ban đầu của MySQL.
+
+### Đối với MariaDB Server 5.5
+
+Khi chạy câu lệnh cài đặt MariaDB sau, hệ thống tự nhận gói cài đặt ver 5.5
+
+```
+sudo yum install mariadb-server
+```
+
+### Cài đặt MariaDB Server 10.0 trở lên
+
+Do từ ver 10.0 -> 10.4 có nhiều cập nhập đáng kể, nên việc cài đặt MariaDB Server 10.4 khác hơn nhiều so với ver 5.5
+
+Để cài đặt các ver MariaDB Server mới nhất, ta có thể cài đặt thông qua các repository có sẵn.
+
+* Bước 1 : Cập nhập key rpm của CentOS 7 :
+
+```
+```
+
+Cài đặt EPEL Repository (Kho chương trình cộng đồng mã nguồn mở do Fedora phát triển và duy trì)
+
+```
+yum -y install epel-release
+```
+
+![Maria_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Maria_1.png)
+
+* Bước 2 : Cài đặt gói máy chủ MariaDB
+
+```
+yum -y install mariadb-server mariadb
+```
+
+![Maria_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Maria_2.png)
+
+* Bước 3 : Đặt mật khẩu root , chạy các lệnh sau : 
+
+```
+systemctl enable mariadb
+systemctl start mariadb
+mysql_secure_installation
+```
+
+> Enter current password for root (enter for none): Nhấn phím Enter
+> Set root password? [Y/n]: Y
+> New password: Nhập password root các bạn muốn tạo
+> Re-enter new password: Nhập lại password root
+> Remove anonymous users? [Y/n] : Y
+> Disallow root login remotely? [Y/n]: Y
+> Remove test database and access to it? [Y/n] : Y
+> Reload privilege tables now? [Y/n]: Y
+
+![Maria_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Maria_3.png)
+
+## Cài đặt PHP-FPM và các Module cần thiết
+
+### Cài đặt PHP-FPM
+
+Để cài đặt PHP-FPM chạy các lệnh sau :
+
+```
+yum -y install yum-utils
+rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum -y update
+
+yum-config-manager --enable remi-php73
+yum -y install php php-fpm php-ldap php-zip php-embedded php-cli php-mysql php-common php-gd php-xml php-mbstring php-mcrypt php-pdo php-soap php-json php-simplexml php-process php-curl php-bcmath php-snmp php-pspell php-gmp php-intl php-imap perl-LWP-Protocol-https php-pear-Net-SMTP php-enchant php-pear php-devel php-zlib php-xmlrpc php-tidy php-mysqlnd php-opcache php-cli php-pecl-zip unzip gcc
+```
+
+Sau khi cài đặt xong, vào file `/etc/php.ini` để cấu hình PHP :
+
+```
+date.timezone = Asia/Ho_Chi_Minh
+expose_php = Off
+short_open_tag = On
+max_input_vars = 3000
+disable_functions = exec,system,passthru,shell_exec,proc_close,proc_open,dl,popen,show_source,posix_kill,posix_mkfifo,posix_getpwuid,posix_setpgid,posix_setsid,posix_setuid,posix_setgid,posix_seteuid,posix_setegid,posix_uname
+```
+Mở file `/etc/httpd/conf.d/php.conf` tìm dòng `SetHandler application/x-httpd-php` sửa thành `SetHandler “proxy:fcgi://127.0.0.1:9000”`
+
+![php_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_1.png)
+
+Khởi động lại Apache và load lại config : 
+
+```
+systemctl restart httpd
+```
+
+### Khởi động PHP-FPM
+
+Chạy 2 lệnh sau để khởi động PHP-FPM
+
+```
+systemctl start php-fpm
+systemctl enable php-fpm
+```
+Tạo file /var/www/html/tienlk/info.php với nội dung :
+
+```
+<?php
+phpinfo();
+```
+
+![php_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_2.png)
+## Cài đặt Wordpress
+
+* Bước 1 : Tạo data base cho Wordpress, đăng nhập vào maria db
+
+```
+mysql -u root -p
+CREATE DATABASE wordpress;
+SHOW DATABASES;
+```
+
+![wp_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/wp_1.png)
+
+* Bước 2 : Tạo acc truy cập database và thêm quyền cho acc wordpress
+
+```
+CREATE USER wordpress@localhost IDENTIFIED BY '0123456a@';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY '0123456a@' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit;
+```
+
+* Bước 4 : Cài đặt WordPress, cài đặt từ `yum package`
+
+```
+yum -y install wordpress
+```
+Chuyển thư mục WordPress đã cài `/usr/share/wordpress/`  về thư mục mặc định của web `/var/www/html/` bằng rsync :
+
+```
+yum install rsync
+rsync -avP /usr/share/wordpress/ /var/www/html/tienlk/
+```
+Cập nhập lại quyền cho nhóm người dùng Apache:
+
+```
+chown -R apache:apache /var/www/html/
+```
+
+* Bước 5 : Cấu hình wordpress qua tệp `wp-config.php`
+Lưu ý : Phải cấu hình ở tệp gốc theo đường dẫn `/usr/share/wordpress/wp-config.php`
+
+```
+vi /usr/share/wordpress/wp-config.php
+systemctl reload httpd
+```
+
+Sửa các dòng đánh dấu như ảnh sau đó khởi động lại apache
+
+![wp_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/wp_2.png)
+
+Check lại bằng trình duyệt với link `http://tienlk.com/wp-admin/` ta có kết quả như ảnh
+
+![wp_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/wp_3.png)
