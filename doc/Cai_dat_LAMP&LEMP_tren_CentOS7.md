@@ -116,11 +116,11 @@ Sau khi tạo xong file hoặc truy cập file config của Apache thành công,
      DocumentRoot /var/www/tienlk
      ServerName www.tienlk.com
      ServerAlias tienlk.com
-     ErrorLog /var/www/tienlk.com/error.log
-     CustomLog /var/www/tienlk.com/requests.log common
+     ErrorLog /var/log/httpd/tienlk/error.log
+     CustomLog /var/log/httpd/tienlk/requests.log common
 </VirtualHost>
 ```
-
+Và tạo thư mục chưa log website `sudo mkdir -p /var/log/httpd/tienlk` .
 Sau khi suwar xong file cấu hình, ta dùng lệnh `apachectl configtest` để kiểm tra cấu hình. Kết qủa báo về `Symtax OK` tức là cấu hình đã đúng.
 
 ![VPS_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/VPS_2.png)
@@ -182,7 +182,6 @@ Cài đặt EPEL Repository (Kho chương trình cộng đồng mã nguồn mở
 yum -y install epel-release
 ```
 
-![Maria_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Maria_1.png)
 
 * Bước 2 : Cài đặt gói máy chủ MariaDB
 
@@ -235,9 +234,6 @@ short_open_tag = On
 max_input_vars = 3000
 disable_functions = exec,system,passthru,shell_exec,proc_close,proc_open,dl,popen,show_source,posix_kill,posix_mkfifo,posix_getpwuid,posix_setpgid,posix_setsid,posix_setuid,posix_setgid,posix_seteuid,posix_setegid,posix_uname
 ```
-Mở file `/etc/httpd/conf.d/php.conf` tìm dòng `SetHandler application/x-httpd-php` sửa thành `SetHandler “proxy:fcgi://127.0.0.1:9000”`
-
-![php_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_1.png)
 
 Khởi động lại Apache và load lại config : 
 
@@ -314,3 +310,121 @@ Sửa các dòng đánh dấu như ảnh sau đó khởi động lại apache
 Check lại bằng trình duyệt với link `http://tienlk.com/wp-admin/` ta có kết quả như ảnh
 
 ![wp_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/wp_3.png)
+
+![wp_4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/wp_4.png)
+
+# Cài LEMP
+
+LEMP là chữ viết tắt thường được dùng để chỉ sự sử dụng các phần mềm Linux, Nginx, MySQL/MariaDB và PHP/PHP-FPM để tạo nên một môi trường máy chủ Web giúp triển khai các website trên môi trường Internet.
+
+Các chức năng cụ thể các bạn có thể hiểu nhanh là LEMP hoạt động từ các phần mềm Linux, với máy chủ web là Nginx, máy chủ cơ sở dữ liệu MariaDB hoặc MySQL và nội dung file động được xử lý bởi PHP.
+
+## Cài Nginx
+
+Giống với Apache , máy chủ web Nginx là một trong những máy chủ web phổ biến nhất trên thế giới. Nó đã được ghi chép đầy đủ và được sử dụng rộng rãi trong một thời gian dài, điều này khiến cho Nginx trở thành một lựa chọn mặc định tuyệt vời để lưu trữ một website.
+
+Vì NGINX không có sẵn repository của CentOS vì vậy chúng ta phải cài repository EPEL​ với câu lệnh sau: 
+
+```
+yum install epel-release -y
+yum install nginx -y
+```
+
+Như hình là ta đã cài đặt thành công Nginx
+
+![Ngix_1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Ngix_1.png)
+
+Các câu lệnh quản lý Nginx service :
+```
+systemctl start nginx      (Khởi động dịch vụ Nginx)
+systemctl stop nginx       (Dừng dịch vụ Nginx)
+systemctl reload nginx     (Tải lại dịch vụ Nginx)
+systemctl restart nginx    (Khởi động lại  dịch vụ Nginx:)
+systemctl enable nginx     (Thiết lập Nginx khởi động cùng hệ thống)
+systemctl disable nginx    (Vô hiệu hoá Nginx khởi động cùng hệ thống )
+systemctl status nginx     (Xem trạng thái dịch vụ Nginx)
+```
+
+Mặc định trên Centos 7 sẽ sử dụng tường lửa là Firewalld, nên các bạn cần thực hiện mở Port dịch vụ với Firewalld theo các cách sau:
+
+  
+```
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload      (Reload lại Firewalld) 
+```
+
+#### Cấu hình Nginx
+
+Để cấu hình Nginx xử lý , các bạn cần chỉnh sửa cấu hình file `default.conf` tại đường dẫn `/etc/nginx/conf.d/default.conf` bằng lệnh.
+
+```
+vi /etc/nginx/conf.d/default.conf
+```
+
+Copy và dán đoạn dưới đây vào file `default.conf`
+```
+server {
+    listen  80;
+    server_name  127.0.0.1;
+
+    root   /var/www/html/tienlk;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_pass unix:/var/run/php_fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+```
+
+Kiểm tra lại cấu hình đã chuẩn hay chưa, dùng lệnh `nginx -t`
+
+![Ngix_2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Ngix_2.png)
+
+Khởi động lại Nginx :
+
+```
+systemctl restart nginx
+```
+
+Kiểm tra lại nginx
+
+![Ngix_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/Ngix_3.png)
+
+# Cài đặt phpMyAdmin để quản lý database
+
+Dùng câu lệnh sau để cài phpMyAdmin : 
+
+```
+yum install phpmyadmin
+```
+Để cấu hình PhpMyAdmin chấp nhận kết nối remote đến database server từ mọi địa chỉ IP, bạn mở và điều chỉnh lại file `phpmyadmin.conf`.
+
+```
+vi  /etc/httpd/conf.d/phpmyadmin.conf
+```
+
+Đặt địa chỉ IP là máy cần truy cập như ảnh
+
+![5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_5.png)
+
+Truy cập link : `http://tienlk.com/phpmyadmin` và nhập user và pass acc MariaDB đã tạo lúc nãy, ta có kết quản như sau :  
+
+![6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_6.png)
+
+![7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/LAMP_CentOS7/php_7.png)
