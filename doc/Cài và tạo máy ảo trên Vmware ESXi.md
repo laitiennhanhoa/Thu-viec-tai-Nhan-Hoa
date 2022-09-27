@@ -181,7 +181,7 @@ Nhập tên foder xong nhấn `Create directory`.
 
  ![setup_Win10_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/5641ed38cf23e2108ffdd928d3e71bdf89295a42/images/setup_Win10_3.png)
 
- * Bước 4 :  Rà soát các thông số lần cuối cùng, sau đó nhấn `Finish`. Server sẽ tự động chại luôn file iso và vào giao diện cài đặt win 10.
+ * Bước 4 :  Rà soát các thông số lần cuối cùng, sau đó nhấn `Finish`. Server sẽ tự động chạy luôn file iso và vào giao diện cài đặt win 10.
 
  ![setup_Win10_3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/74d05bc9c4ab19c5817c4d907443e798b7c97acc/images/setup_Win10_4.png)
 

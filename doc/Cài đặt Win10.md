@@ -53,19 +53,19 @@ __Utilman có thể khởi chạy ngay cả khi người dùng chưa đăng nh�
 
 Các bước thực hiện :
 
-__Giai đoạn 1 : Thay thế file Utilman.exe (trên ổ C của Windows) bằng file cmd.exe (trên usb boot windows)
+__Giai đoạn 1__ : Thay thế file Utilman.exe thành file cmd.exe
 
 * Bước 1 :  Trong giao diện màn hình đăng nhập, nhấn giữ phím `Shift` và chọn `Restart` -> `Restart anyway`
 
-![9.1]()
+![9.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.1.png)
 
 Bước 2 : Chọn `Use a device`
 
-![9.2]()
+![9.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.2.png)
 
-* Bước 3 : Chọn `Next`
+* Bước 3 : Chọn `EFI VMware Virtual SATA CDROM Drive`
 
-![9.3]()
+![9.3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.3.png)
 
 * Bước 4 : Chọn `Next`
 
@@ -73,19 +73,82 @@ Bước 2 : Chọn `Use a device`
 
 * Bước 5 : Chọn `Repair your computer`
 
-![9.5]()
+![9.5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.5.png)
 
 * Bước 6 : Chọn `Troubleshoot`
 
-![9.6]()
+![9.6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.6.png)
 
 * Bước 7 : Chọn `Command Propt`
 
-![9.7]()
+![9.7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.7.png)
+
+* Bước 8 : Mở phân vùng Windows bằng lệnh 
+```
+C:
+```
+Truy cập thư viện Windows :
+
+```
+cd windows\system32
+```
+
+Đổi tên file  chương trình Utilman nhằm mục đích phục hồi tiện ích sau này :
+
+```
+ren utilman.exe utilman.exe.bak
+```
+
+Thay thế Utilman bằng Command Prompt
+
+```
+copy cmd.exe Utilman.exe
+```
+
+![9.8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.8.png)
+
+Sau khi chạy xong lệnh trên, ta có kết quả như hình, đóng cửa sổ cmd và chọn `Continue` .
+
+![9.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.2.png)
+
+__Giai đoạn 2__ : Đổi password bằng Utilman 
+
+Bước 9 : Sau khi windows hoàn tất khởi động, nhấn phím `Windows Key + U` hoặc biểu tượng bánh xe sẽ vào được Command Prompt với acc có quyền hạn cao nhất (Administrator), vì vậy ta có thể đổi pass hoặc thêm mới/xóa người dùng bằng lệnh `net user` , thêm người dùng vào nhóm Administrators bằng lệnh `net localgroup Administrators` . 
+
+__Ví dụ__ : đổi password acc
+
+```
+net user nhanhoa 123abc@A ( nhanhoa là acc người dùng, 123abc@A là password mới )
+```
+
+![9.9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/9cc279141ad5efda26771bc999d24b691e3411ee/images/Win_10/9.9.png)
+
+Sau đó ta đăng nhập bằng pass vừa đổi.
 
 
 # Thêm ổ đĩa
 
+Thêm 1 ổ đĩa mới khoảng 50GB trên máy ảo VMware với tên là Hard disk 2.
+
+![10.1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.1.png)
+
+Nhấn `Windows Key + X` , chọn `Disk Management`
+
+![10.2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.2.png)
+
+Trong cửa sổ `Disk Management` , chọn chuẩn phân vùng cho ổ đĩa mới là __GPT__ sau đó chia ổ đĩa bằng cách : Click chuột phải vào `Disk 1` chọn `New Simple Volume...` -> `Next` 
+
+![10.3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.3.png)
+
+Ở cửa sổ chia ổ đĩa, ta có thể thiết lập dung lượng ổ mới (tối đa = dung lượng trống của ổ đĩa). Sau đó nhấn `Next` -> `Next`.
+
+Rà soát lại kiểu dữ liệu, kích thước khối và tên phân vùng, nhấn `Next` =>`Finish`.
+
+![10.4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.4.png)
+
+Kiểm tra lại thấy windows đã nhận ổ cứng.
+
+![10.5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Win_10/10.5.png)
 # Gỡ ổ đĩa
 
 # Sao lưu và khôi phục
