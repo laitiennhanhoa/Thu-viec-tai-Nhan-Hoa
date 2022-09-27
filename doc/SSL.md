@@ -8,8 +8,6 @@ Chứng chỉ SSL cài trên website của doanh nghiệp cho phép khách hàng
 
 ![1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/SSL/1.png)
 
-<<<<<<< HEAD
-
 #  Các loại SSL phổ biến :
 
 ## Domain Validation (DV SSL) 
@@ -28,6 +26,3 @@ Chứng chỉ SSL cài trên website của doanh nghiệp cho phép khách hàng
 
 ## Subject Alternative Names (SANs SSL)
 
-
-=======
->>>>>>> d3173c90bda62c111ee29b6faf3055ae05360adc
