@@ -26,3 +26,29 @@ Chứng chỉ SSL cài trên website của doanh nghiệp cho phép khách hàng
 
 ## Subject Alternative Names (SANs SSL)
 
+* Chứng nhận SSL tên thay thế chủ thể (SAN) bảo vệ nhiều website có các tên miền khác nhau – ví dụ: nhanhoa.com, dnsnhanhoa.vn và blognh.bik
+
+* Chứng thư số SSL SANs có thể tích hợp với tất cả các loại chứng thư số SSL của GlobalSign bao gồm:Chứng thực tên miền (DV SSL),Chứng thực tổ chức doanh nghiệp (OV SSL)và Chứng thực mở rộng cao cấp (EV SSL).
+
+## Wildcard SSL Certificate (Wildcard SSL)
+
+* Là một chứng chỉ SSL có thể dùng cho tên miền chính và tất cả các tên miền phụ của website. VD : Khi mua Wildcard SSL thì bạn sẽ được bảo mật cho cả tên miền chính như nhanhoa.com và cả các tên miền phụ như blog.nhanhoa.com và các subdomain khác.
+
+# Tác dụng của SSL
+
+* An toàn dữ liệu: dữ liệu không bị thay đổi bởi hacker.
+* Bảo mật dữ liệu: dữ liệu được mã hóa và chỉ người nhận đích thực mới có thể giải mã.
+* Chống chối bỏ: đối tượng thực hiện gửi dữ liệu không thể phủ nhận dữ liệu của mình.
+
+# Lợi ích khi sử dụng SSL
+
+* Xác thực website, giao dịch.
+* Nâng cao hình ảnh, thương hiệu và uy tín doanh nghiệp.
+* Bảo mật các giao dịch giữa khách hàng và doanh nghiệp, các dịch vụ truy nhập hệ thống.
+* Bảo mật webmail và các ứng dụng như Outlook Web Access, Exchange, và Office Communication Server.
+* Bảo mật các ứng dụng ảo hó như Citrix Delivery Platform hoặc các ứng dụng điện toán đám mây.
+* Bảo mật dịch vụ FTP.
+* Bảo mật truy cập control panel.
+* Bảo mật các dịch vụ truyền dữ liệu trong mạng nội bộ, file sharing, extranet.
+* Bảo mật VPN Access Servers, Citrix Access Gateway …
+* Website không được xác thực và bảo mật sẽ luôn ẩn chứa nguy cơ bị xâm nhập dữ liệu, dẫn đến hậu quả khách hàng không tin tưởng sử dụng dịch vụ.
