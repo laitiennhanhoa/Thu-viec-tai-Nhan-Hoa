@@ -174,6 +174,7 @@ Do từ ver 10.0 -> 10.4 có nhiều cập nhập đáng kể, nên việc cài 
 * Bước 1 : Cập nhập key rpm của CentOS 7 :
 
 ```
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 ```
 
 Cài đặt EPEL Repository (Kho chương trình cộng đồng mã nguồn mở do Fedora phát triển và duy trì)
