@@ -181,7 +181,7 @@ Sau khi chạy xong, kết quả domain sẽ có thông báo hình ổ khóa xan
 
  * `Advanced` -> `Terminal` : hỗ trợ chương trình giao diện cửa sổ dòng lệnh
 
- * `Software` -> `MultiPHP Manager` : Quản lý nhiều version PHP trên website.
+ * `Software` -> `MultiPHP Manager` : Quản lý nhiều version PHP trên website. (Caid đặt các version PHP qua EasyApache 4)
 
 ![29](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/29.png)
  
@@ -206,4 +206,6 @@ Sau khi chạy xong, kết quả domain sẽ có thông báo hình ổ khóa xan
 * người dùng vẫn sử dụng các phiên bản cũ nhiều
 
 * là phần mềm trả phí
+
+# Packages
 
