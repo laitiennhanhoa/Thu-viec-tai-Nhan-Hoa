@@ -66,3 +66,144 @@ Trong trang cấu hình tiếp theo, nhấn `Finish` để kết thúc quá trì
 Giao diên chính của cPanel :
 
 ![9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/9.png)
+
+# Sử dụng cPanel căn bản :
+
+## Tạo acc mới cho 1 domain
+
+Tại trang quản trị hosting, chọn `Account Information` -> `List Accounts` -> `Create a New Account`
+
+![10](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/10.png)
+
+Điền đầy đủ các thông tin về domain, tên account, mật khẩu,... Xong nhấn `Creat`. Hệ thống sẽ tự tạo acc và thông báo khi xong.
+
+![11](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/11.png)
+
+Sau khi acc được tạo xong, nhấn vào `Account Information` -> `List Accounts` -> `cPanel` để truy cập trang quản trị website.
+
+* Lưu ý : Kiểm tra bản ghi DNS của domain đã trỏ sang IP cPanel chưa, nếu chưa trỏ thỉ sửa lại bản ghi DNS.
+
+## Cài đặt WordPress trên cPanel
+
+Truy cập link `https://[ip]/2082` . VD : `https://103.170.122.32:2083/`, đăng nhập bằng acc đã tạo từ trước.
+Sáu khi đăng nhập, trong giao diện quản trị, chọn `Wordpress Toolkit` -> `Install WordPress`. Hệ thống sẽ tự sinh các thông tin như acc truy cập WordPress, thông tin về database, người dùng có thể tự đặt lại các thông số, sau đó nhấn `Install`.
+
+![14](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/14.png)
+
+Sau khi cài đặt xong, truy cập thử trang web ta sẽ thấy giao diện `WordPress`.
+
+![15](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/15.png)
+
+## Sao lưu và phục hổi wordpess qua cPanel
+
+Xem trong wordpess hiện có 5 bài post, ta thực hiện back up qua cPanel sau đó xóa bài post.
+
+![16](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/16.png)
+
+* Sao lưu qua cPanel: 
+ Trong trang quản lý domain, chọn `Back Up/Restore` . Chọn nơi lưu file backup và nhấn `Back Up`.
+
+ ![17](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/17.png)
+
+ Sau khi back up xong ta có file backup như hình :
+
+![18](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/18.png)
+
+* Thực hiện xóa post, truy cập trang admin wordpress, chọn post và đưa vào thùng rác (Trash), truy nhập vào thùng rác và xóa hẳn các bài post trên, sau đó check lại. 
+
+![19](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/19.png)
+
+* Restore wordpress
+
+Trong trang quản lý domain, chọn `Back Up/Restore` . Chọn file backup và nhấn `Restore`. Sau khi restore xong, load lại trang `https:[domain]/ưp-admin` để kiểm tra.
+
+![20](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/20.png)
+
+## Thêm tài khoản Email
+
+cPanel giúp dễ dàng tạo một địa chỉ email cho riêng bạn, sử dụng domain duy nhất của bạn. Chọn Email Account trong mục Email. Nhập địa chỉ mail mà bạn muốn lập cũng như mật khẩu và click Create Account.
+Sau đó, bạn có thể truy cập tài khoản webmail ngay từ cPanel hoặc thiết lập tài khoản mail mới để làm việc với ứng dụng email độc lập.
+
+![21](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/21.png)
+
+## Upload và quản lý file
+
+Để truy cập, tìm tùy chọn `File Manager` trong mục `File`.
+Bạn click vào `File Manager` để chuyển sang một giao diện mới giúp bạn thực hiện.
+
+![22](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/22.png)
+
+Đến các vị trí khác nhau bằng cách sử dụng cây thư mục ở bên trái.
+Quản lý các tệp riêng lẻ trong giao diện trung tâm.
+Thực hiện các tác vụ khác nhau, bao gồm tải lên và chỉnh sửa tệp, trên thanh top bar.
+
+![23](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/23.png)
+
+## Backup website 
+
+Miễn là site của bạn không quá lớn (một số host áp đặt giới hạn), bạn luôn có thể backup web của mình theo cách thủ công từ dashboard của cPanel.
+
+Để bắt đầu, tìm tùy chọn `Backup` hoặc `Backup Wizard` trong mục `Files`. Sau đó, làm theo trình hướng dẫn để hoàn thành back up.
+
+![24](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/24.png)
+
+# Đổi mật khẩu tài khoản qua Web Host Manager
+
+Tại trang quản trị hosting, chọn `Account Information` -> `List Accounts` , chọn domain chứa acc cần đổi pass, nhập pass word mới và nhấn nhấn `Change`.
+
+# Tạo subdomain
+
+Trong trang quản lý domain, chọn `Domain` -> `Subdomains`, nhập thông tin subdomain mới và nhấn `Create`
+
+![27](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/27.png)
+
+# Cài SSL trên cPanel
+
+Trong trang quản lý domain, chọn mục `Security` -> `SSL/TLS`, chọn trình mặc định, nhấn `Save` để hệ thông tự tạo khóa SSL, sau đó trở về trang quản lý domain. Trong trang quản lý domain, chọn `Security` -> `SSL/TLS Status` -> click các domain cần thêm SSL, nhấn `Run AutoSSL`.
+
+![25](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/25.png)
+
+
+Sau khi chạy xong, kết quả domain sẽ có thông báo hình ổ khóa xanh như ảnh.
+
+![26](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/26.png)
+
+## Quản trị người dùng trong domain
+ Chọn `Preferences` =>`User Manager` 
+
+ # Quản trị domain
+
+ * `Metrics` -> `Errors` : lỗi website
+
+ * `Metrics` -> `Bandwidth` : Thống kee băng thông
+
+ * `Metrics` -> `Raw Access` : Log truy cập website
+
+ * `Advanced` -> `Terminal` : hỗ trợ chương trình giao diện cửa sổ dòng lệnh
+
+ * `Software` -> `MultiPHP Manager` : Quản lý nhiều version PHP trên website.
+
+![29](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/29.png)
+ 
+ * roundcube/horde : Phần mềm webmail
+
+# Tổng kết 
+
+## Ưu điểm 
+
+* Dễ sử dụng
+
+* cPanel được thử nghiệm kỹ càng, các tính năng tương tác với filer/foder phản hồi nhanh
+
+* Có trình cài đặt tự động
+
+* Có tính bảo mật cao
+
+## Nhược điểm 
+
+* nhiều chức năng không cần thiết gây lãng phí tài nguyên
+
+* người dùng vẫn sử dụng các phiên bản cũ nhiều
+
+* là phần mềm trả phí
+
