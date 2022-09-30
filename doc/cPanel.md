@@ -85,7 +85,7 @@ Sau khi acc được tạo xong, nhấn vào `Account Information` -> `List Acco
 
 ## Cài đặt WordPress trên cPanel
 
-Truy cập link `https://[ip]/2082` . VD : `https://103.170.122.32:2083/`, đăng nhập bằng acc đã tạo từ trước.
+Truy cập link `https://[ip]/2083` . VD : `https://103.170.122.32:2083/`, đăng nhập bằng acc đã tạo từ trước.
 Sáu khi đăng nhập, trong giao diện quản trị, chọn `Wordpress Toolkit` -> `Install WordPress`. Hệ thống sẽ tự sinh các thông tin như acc truy cập WordPress, thông tin về database, người dùng có thể tự đặt lại các thông số, sau đó nhấn `Install`.
 
 ![14](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/cPanel/14.png)
@@ -209,3 +209,26 @@ Sau khi chạy xong, kết quả domain sẽ có thông báo hình ổ khóa xan
 
 # Packages
 
+Mục đích của việc tạo package nhằm chia nhiều gói nhỏ khác nhau để áp dụng cho các tài khoản host con
+
+* Tạo một gói trong cPanel :
+
+Tại trang quản trị hosting, chọn `Packages` -> `Add a Packages` , điền các thông số sau vào mục cấu hình
+Trong đó :
+
+ - Package Name : tên gói
+ - Disk Space Quota (MB) : Dung lượng lưu trữ
+ - Monthly Bandwidth Limit (MB) : Giới hnaj băng thông
+ - Max FTP Accounts : Số lượng tài khoản FTP
+ - Max Email Accounts : Số lượng tài khoản mail
+ - Max Mailing Lists : Số lượng danh sách gửi thư
+ - Max SQL Databases : Số lượng tối đa data base được tạo
+ - Max Sub Domains : Số lượng tối đa tên miền con
+ - Max Parked Domains : Số lượng tối đa tên miền song song
+ - Max Addon Domains : Số lượng tối đa tên miền chính
+ - Max Passenger Applications :  Số lượng ứng dụng mà user có thể chạy trên hosting
+ - Maximum Hourly Email by Domain Relayed : Số lượng email tối đa mà 1 domain có thể gửi trong vòng 1 giờ.
+ - Maximum percentage of failed or deferred messages a domain may send per hour :  Tỷ lệ email lỗi mà 1 domain có thể gửi ra trong vòng 1 giờ.
+ - Max Quota per Email Address (MB) : Dung lượng tối đa của 1 đia chỉ email.
+
+ 
