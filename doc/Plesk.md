@@ -60,14 +60,78 @@ yum install wget
 Cài đặt Plesk
 
 ```
-#sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O – https://autoinstall.plesk.com/one-click-installer)
+sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O – https://autoinstall.plesk.com/one-click-installer)
 ```
+Sau khi trình cài đặt chạy xong sẽ có thông báo thông tin đăng nhập quản trị cho bạn. Bạn đăng nhập với thông tin là SSH của mình.
 
+![c1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c1.png)
+
+Đăng nhập qua link : https://[ip]:8443/
+Sau khi nhập các thông tin cần thiết để kích hoạt plesk, hệ thống sẽ bắt đầu khởi tạo, sau khi hoàn tất sẽ hiện ra giao diện quản lý của Plesk.
+
+1[c3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c3.png)
 
 # Hướng dẫn dùng Plesk cơ bản
 
+## Thêm website 
 
-# Đánh giá
+Trong trang quản trị Plesk, chọn mục `Trang web và tên miền` => `Thêm tên miền`
+
+![c4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c4.png)
+
+Nếu đã có tên miền có sẵn, chọn phần `Tên miền đã đăng ký` , nếu chưa có tên miền, chọn `Tên miền tạm thời`, bổ sung thông tin người dùng hệ thống và nhấn `Thêm ten miền`
+
+## Thêm SSL cho website
+
+Trong trang quản trị Website, mục `An ninh` click vào `Chứng nhận SSL/TLS` ,điền thông tin và nhấn `Tạo miễn phí` . 
+
+![c8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c8.png)
+
+Sau khi hệ thống tạo xong có thể kiểm tra lại như hình.
+
+![c9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c9.png)
+
+## Up code, build website lên hosting Plesk 
+
+Chuẩn bị scource và file database, đăng nhập vào Plesk, chọn domain cần up code, chọn `Trình quản lý tập tin và thư mục`=>`Tải lên tập tin`=> chọn file cần tải và tải lên.
+![c10](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c10.png)
+![c11](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c11.png)
+
+Thêm database cho website, chọn `Cơ sở dữ liệu` => `Mở trong phpMyAdmin`.
+
+![c12](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c12.png)
+Trong trang quản trị phpMyAdmin, chọn `Nhập` => `Duyệt máy tính của bạn`, chọn file data và đợi hệ thống import vào.
+
+![c13](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c13.png)
+
+Sửa các dòng có giá trị là `siteurl` và `home` bảng wp_options bằng phpMyAdmin
+
+![c14](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c14.png)
+
+Xóa hết file trong thư mục `/htttpdoc` sau đó giải nén scource code đã tải lên trước đó vào. Sửa file wp-config.php theo cấu hình database trên host.
+
+![c15](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c15.png)
+
+Ngoài ra có thể tùy chỉnh version PHP cho phù hợp nếu sử dụng các bản code wordpress version cũ.
+
+![c16](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c16.png)
+
+Sau khi sửa cấu hình, check lại trang web ta có thành quả sau.
+
+![c17](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/c17.png)
+# Tạo email
+
+Tại trang quản trị Plesk, chọn `Mail` => `Create Email Address`, nhập thông tin cho email mới, nhấn ok.
+
+![e1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/e1.png)
+
+sau khi tạo xong tài khoản, nhấn biểu tượng email trong hình để vào trang webmail. 
+
+![e2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/e2.png)
+
+Trong gian diện này có thể gửi nhận email qua mail vừa tạo.
+
+![e3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/Plesk/e3.png)
 
 ## Ưu điểm :
 
