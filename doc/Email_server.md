@@ -239,3 +239,8 @@ Kiểm tra trong host đã đủ dòng sau chưa :
 Soạn mail gửi vào email có địa chỉ : `admin@hongson2.xyz`
 ta thấy hòm mail `admin@hongson2.xyz` trên Zimbra đã nhận được thư.
 ![19](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/19.png)
+
+Soạn mail có nội dung là `Test gửi mail` gửi vào địa chỉ email `tienlk@nhanhoa.com.vn`, kiểm tra trong hòm mail trên thấy có mail gửi từ `admin@hongson2.xyz`.
+
+![20](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/20.png)
