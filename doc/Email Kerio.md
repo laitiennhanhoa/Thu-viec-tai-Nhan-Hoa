@@ -40,10 +40,19 @@ ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 
  * Bước 5 : Truy cập link `http:[IP]:4040` để thực hiện các bước cài đặt tiếp theo.
 
+ Nhấn `Next`
+
 [3]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/kerio/3.png}
+
+Chấp nhận điều khoản dịch vụ, nhấn `Next`
 
 [4]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/kerio/4.png}
 
+Nhập thông tin hostname, mail server.
+
 [5]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/kerio/5.png}
 
+Nhập thông tin tài khoản quản trị.
+
 [6]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/images/kerio/6.png}
+

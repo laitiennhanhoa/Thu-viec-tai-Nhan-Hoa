@@ -244,3 +244,50 @@ Soạn mail có nội dung là `Test gửi mail` gửi vào địa chỉ email `
 
 ![20](https://github.com/laitiennhanhoa/
 Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/20.png)
+
+# Tạo và add SSL vào Zimbra
+
+ * Bước 1: Truy cập trang https://zerossl.com/ và nhập domain cần chứng chỉ SSL.
+
+ ![21](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/21.png)
+
+Đăng nhập vào trang, có thể dùng email không tồn tại.
+
+ * Bước 2 : Nhập domain cần tạo ssl. Nhấn `Next Step`
+  ![22](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/22.png)
+
+ * Bước 3 : Click chọn `90-Day Certificate` để được miễn phí. Nhấn `Next Step`
+
+ ![23](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/23.png)
+
+ * Bước 4 : Nhấn `Next Step`
+
+  ![24](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/24.png)
+
+ * Bước 5 : Nhấn `Next Step`
+
+  ![25](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/25.png)
+
+ * Bước 6 : Chọn DNS.  
+  ![26](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/26.png)
+
+![27](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/27.png)
+
+Tạo 1 bản ghi CNAME trên DNS server có các thông tin như ảnh, sau đó nhấn `Next Step`.
+
+* Bước 7 : Nhấn `Verify Domain`
+
+  ![28](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/28.png)
+
+Tải file Certificate về máy và giải nén.
+
+![29](https://github.com/laitiennhanhoa/
+Thu-viec-tai-Nhan-Hoa/blob/main/images/eMail/29.png)    
