@@ -6,7 +6,7 @@ Hiểu một cách đơn giản, ảo hóa (VM – Virtual Machine) đề cập 
 
 Công nghệ ảo hóa Server sẽ cho phép phân chia một máy chủ vật lý thành nhiều máy chủ ảo độc lập. Mỗi máy chủ ảo có thể được thiết lập chạy trên một hệ điều hành riêng.
 
-[3]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/3.png}
+![3](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/3.png)
 
 ### CÁC MỨC ĐỘ ẢO HÓA
 
@@ -40,7 +40,7 @@ Có hai dạng Hypervisor:
 
 Vì ở loại thứ 1, Hypervisor tương tác trực tiếp với phần cứng nên việc quản lý và phân phối tài nguyên được tối ưu và hiệu quả hơn so với loại 02, vì vậy khi triển khai trong thực tế, ảo hóa Loại 01 (Bare-Metal Hypervisor) được sử dụng, loại 02 chỉ sử dụng trong các trường hợp thử nghiệm, hoặc mục đích học tập.
 
-[2]{https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/2.png}
+![2](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/2.png)
 
 # Phân loại công nghệ ảo hóa máy chủ
 Có 2 kiểu ảo hóa máy chủ cơ bản:
