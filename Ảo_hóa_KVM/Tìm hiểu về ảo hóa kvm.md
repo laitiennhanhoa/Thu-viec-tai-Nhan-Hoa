@@ -53,3 +53,93 @@ Có 2 kiểu ảo hóa máy chủ cơ bản:
 Ảo hóa máy chủ hoạt động dựa trên việc phân tách phần cứng và phần mềm. Sẽ có một lớp ảo hóa ở tầng trung gian được gọi là Hypervisor.
 
 ![1](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/1.png)
+
+
+# Cài đặt KVm trên CentOs 7
+
+Chuẩn bi 1 server đã cài CentOS 7, update OS trước khi cài.
+
+Kiểm tra CPU hỗ trợ KVM hay không :
+
+```
+lscpu | grep Virtualization
+egrep -c "svm|vmx" /proc/cpuinfo
+```
+
+Kết quả như sau là có hỗ trợ
+
+![4](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/4.png)
+
+Cài KVM và các gói phụ trợ liên quan: 
+
+```
+yum install -y qemu-kvm libvirt bridge-utils virt-manager
+```
+
+Sau khi cài đặt, kiểm tra lại bằng lệnh : 
+
+` lsmod | grep kvm `
+
+![5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/5.png)
+
+Đối với bản Minimal để dùng được công cụ đồ họa virt-manager người dùng phải cài đặt gói x-window bằng câu lệnh
+`yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils -y`
+
+Start dịch vụ libvirt và cho nó khởi động cùng hệ thống
+```
+systemctl start libvirtd
+systemctl enable libvirtd
+```
+
+## Tạo card mạng ảo publish mạng cty
+
+Di chuyển đến thư mục `/etc/sysconfig/network-scripts` tạo file mới có tên `ifcfg-lancty`
+Dùng vim để sửa file thành nội dung như sau :
+
+```
+DEVICE=lancty
+BOOTPROTO=none
+IPADDR=172.16.7.14
+PREFIX=20
+GATEWAY=172.16.10.1
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+ONBOOT=yes
+TYPE=Bridge
+NM_CONTROLLED=no
+```
+đồng thời sửa file `ifcfg-enp7s0
+` thành :
+
+```
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_PEERDNS=yes
+IPV6_PEERROUTES=yes
+IPV6_FAILURE_FATAL=no
+NAME=enp7s0
+UUID=200f97a5-4332-48c8-bc20-9c3a9b55b3a0
+DEVICE=enp7s0
+ONBOOT=yes
+#IPADDR=172.16.7.14
+#PREFIX=20
+#GATEWAY=172.16.10.1
+#DNS1=8.8.8.8
+#DNS2=8.8.4.4
+#DEFROUTE=yes
+BRIDGE=lancty
+NM_CONTROLLED=no
+```
+
+Chạy `systemctl restart network` update lại cấu hình.
+Kiểm tra lại cấu hình mạng ta thấy đã nhận bridge lancty : 
+
+![6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/6.png)
+
