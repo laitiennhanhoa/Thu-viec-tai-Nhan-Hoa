@@ -93,12 +93,16 @@ systemctl enable libvirtd
 
 ## Tạo card mạng ảo publish mạng cty
 
-Di chuyển đến thư mục `/etc/sysconfig/network-scripts` tạo file mới có tên `ifcfg-lancty`
+Nguyên lý hoạt động: Trong không gian máy chủ KVM, Linux Bridge tạo switch ảo và add interface cho switch đó. Các card mạng bao gồm của máy chủ và máy ảo đều có thể add vào các switch ảo đã tạo. Những máy nào được add vào interface thuộc public network thì sẽ kết nối đươc với interner, tương tự với private network.
+
+Cấu hình : 
+
+Di chuyển đến thư mục `/etc/sysconfig/network-scripts` tạo file mới có tên `ifcfg-vlan172`
 Dùng vim để sửa file thành nội dung như sau :
 
 ```
-DEVICE=lancty
-BOOTPROTO=none
+DEVICE=vlan172
+BOOTPROTO=static
 IPADDR=172.16.7.14
 PREFIX=20
 GATEWAY=172.16.10.1
@@ -134,12 +138,59 @@ ONBOOT=yes
 #DNS1=8.8.8.8
 #DNS2=8.8.4.4
 #DEFROUTE=yes
-BRIDGE=lancty
+BRIDGE=vlan172
 NM_CONTROLLED=no
+```
+Thêm bridge vlan172 và add interface cho vlan
+
+```
+brctl addbr vlan172
+brctl addif vlan172 enp7s0
 ```
 
 Chạy `systemctl restart network` update lại cấu hình.
-Kiểm tra lại cấu hình mạng ta thấy đã nhận bridge lancty : 
+Kiểm tra lại cấu hình mạng ta thấy đã nhận bridge vlan172 : 
 
 ![6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/6.png)
+
+## Publish VPS với vlan172
+
+Tiến hành tạo mới VPS như bình thường, sau khi cài đặt xong, vào cấu hình IP cho VPS theo dải vlan172, sau khi cấu hình xong kiểm tra lại như ảnh
+
+![7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/7.png)
+
+SSH VPS từ MobaXtem qua vlan172
+
+![8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/8.png)
+
+## Tạo Template và Snapshot trong KVM
+
+### Snapshot
+
+ * Tạo snapshot:
+ ```
+virsh snapshot-create-as --domain centos7.0 --name "centos7" --description "ban trang da update ngay 25.11"
+```
+
+ * Show các bản snapshot đã tạo
+```
+virsh snapshot-list centos7.0
+```
+
+* Xem thông tin chi tiết bản snapshot đã tạo
+```
+virsh snapshot-info centos7.0 --snapshotname "centos7"
+```
+
+* Reverse lại 1 bản snapshot đã tạo
+```
+virsh snapshot-revert centos7.0 --snapshotname "centos7"
+```
+
+* Xóa một bản snapshot đã tạo
+```
+virsh snapshot-delete centos7.0 --snapshotname "centos7"
+```
+
+![9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/9.png)
 
