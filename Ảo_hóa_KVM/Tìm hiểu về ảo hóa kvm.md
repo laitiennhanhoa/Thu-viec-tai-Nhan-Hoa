@@ -194,3 +194,35 @@ virsh snapshot-delete centos7.0 --snapshotname "centos7"
 
 ![9](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/9.png)
 
+
+### Template
+
+* Cài các tool hỗ trợ
+
+```
+yum install /usr/bin/virt-sysprep
+yum install /usr/bin/virt-clone
+```
+
+* Tạo template 
+Sử dụng `virt-sysprep`để tạo template : Có 2 options để dùng virt-sysprep đó là -a và -d .Với -d được sử dụng với tên hoặc UUID của máy ảo, tùy chọn -a được sử dụng với đường dẫn tới ổ đĩa máy ảo
+
+```
+virt-sysprep -d centos7.0
+```
+
+![10](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/10.png)
+
+* Tạo VM từ template có sẵn
+
+ ```
+ virt-clone --original=centos7.0 --name=openvz7 --file=/var/lib/libvirt/images/ovz7.qcow2
+ ```
+
+![11](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/11.png)
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-guest_virtual_machine_disk_access_with_offline_tools-using_virt_sysprep
+
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_administration_guide/cloning-a-vm
+
