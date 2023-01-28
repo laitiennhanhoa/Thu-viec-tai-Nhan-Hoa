@@ -83,7 +83,15 @@ Sau khi cài đặt, kiểm tra lại bằng lệnh :
 ![5](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/5.png)
 
 Đối với bản Minimal để dùng được công cụ đồ họa virt-manager người dùng phải cài đặt gói x-window bằng câu lệnh
-`yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils -y`
+
+`yum install -y qemu-kvm qemu-img virt-manager libvirt libvirt-python libvirt-client virt-install virt-viewer bridge-utils  "@X Window System"xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils mesa-libGLU*.i686 mesa-libGLU*.x86_64`
+
+Và sửa cấu hình lại file config ssh /etc/ssh/sshd_config
+
+```
+X11UseLocalhost no
+AddressFamily inet
+```
 
 Start dịch vụ libvirt và cho nó khởi động cùng hệ thống
 ```
@@ -93,75 +101,107 @@ systemctl enable libvirtd
 
 ## Tạo card mạng ảo publish mạng cty
 
-Nguyên lý hoạt động: Trong không gian máy chủ KVM, Linux Bridge tạo switch ảo và add interface cho switch đó. Các card mạng bao gồm của máy chủ và máy ảo đều có thể add vào các switch ảo đã tạo. Những máy nào được add vào interface thuộc public network thì sẽ kết nối đươc với interner, tương tự với private network.
+Nguyên lý hoạt động: Trong không gian máy chủ KVM, Linux Bridge tạo switch ảo nằm giữa card mạng vật lý và OS máy chủ. Dữ liệu được truyền từ các card mạng ảo trên máy ảo VM sẽ được chuyển tiếp qua switch ảo ảo (Linux Bridge) đến card mạng vật lý trên máy chủ. Vì vậy để các VM có thể giao tiếp được với nhau và kết nối Internet thông qua Linux-bridge thì các port mạng trêm máy chủ vật lý phải được gắn vào 1 interface tương ứng trên Linux Bridge.
 
-Cấu hình : 
+![12](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/12.png)
 
-Di chuyển đến thư mục `/etc/sysconfig/network-scripts` tạo file mới có tên `ifcfg-vlan172`
-Dùng vim để sửa file thành nội dung như sau :
+Giả sử có mô hình như sau :   
+
+Máy chủ vật lý có cài KVM port mạng em1 kết nối internet với IP : 172.16.7.150/20,
+port em3 ắm tới 1 switch (Switch có khả năng chia VLAN) - Phía port switch cấu hình mode trunk (allow các VLAN660: 192.168.60.0/24 - VLAN661:192.168.61.0/24 - VLAN662: 192.168.62.0/24), trên máy chủ vật lý tạo 3 máy ảo bao gồm : 
+
+- 1 VM CentOS7 có IP: 172.16.7.152/20 GW 172.16.10.1 cần kết nối được internet 
+- 2 VM CentOS7 cần kết nối thông đến 2 vlan lần lượt có IP : VLAN660: 192.168.60.254 - VLAN661:192.168.61.254 - VLAN662: 192.168.62.254
+
+Thực hành :
+
+Sửa cấu hình em1 trong file `/etc/sysconfig/network-scripts/ifcfg-em1` thành
 
 ```
-DEVICE=vlan172
-BOOTPROTO=static
-IPADDR=172.16.7.14
-PREFIX=20
-GATEWAY=172.16.10.1
-DNS1=8.8.8.8
-DNS2=8.8.4.4
+DEVICE=em1
+TYPE=Ethernet
+BOOTPROTO=none
 ONBOOT=yes
-TYPE=Bridge
 NM_CONTROLLED=no
+BRIDGE=local172
 ```
-đồng thời sửa file `ifcfg-enp7s0
-` thành :
 
+Đồng thời tạo file cấu hình cho bridge local172 theo `/etc/sysconfig/network-scripts/ifcfg-vlan172` :
+
+```
+DEVICE="local172"
+BOOTPROTO="static"
+IPADDR="172.16.7.151"
+NETMASK="255.255.240.0"
+GATEWAY="172.16.10.1"
+DNS1=8.8.8.8
+ONBOOT="yes"
+TYPE="Bridge"
+NM_CONTROLLED="no
+```
+
+
+
+Sửa file cấu hình em3 `/etc/sysconfig/network-scripts/ifcfg-em3` thành : 
 ```
 TYPE=Ethernet
 BOOTPROTO=none
-DEFROUTE=yes
-PEERDNS=yes
-PEERROUTES=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_PEERDNS=yes
-IPV6_PEERROUTES=yes
-IPV6_FAILURE_FATAL=no
-NAME=enp7s0
-UUID=200f97a5-4332-48c8-bc20-9c3a9b55b3a0
-DEVICE=enp7s0
+NAME=em3
+DEVICE=em3
 ONBOOT=yes
-#IPADDR=172.16.7.14
-#PREFIX=20
-#GATEWAY=172.16.10.1
-#DNS1=8.8.8.8
-#DNS2=8.8.4.4
-#DEFROUTE=yes
-BRIDGE=vlan172
+```
+
+Tạo sub interface cho Vlan660 :
+
+```
+vi /etc/sysconfig/network-scripts/ifcfg-em3.660
+DEVICE=em3.660
+BOOTPROTO=none
+ONBOOT=yes
+VLAN=yes
+BRIDGE=vlan660
+TYPE=Ethernet
 NM_CONTROLLED=no
 ```
-Thêm bridge vlan172 và add interface cho vlan
+
+Tạo bridge vlan660 :
 
 ```
-brctl addbr vlan172
-brctl addif vlan172 enp7s0
+vi /etc/sysconfig/network-scripts/ifcfg-vlan660
+DEVICE="vlan660"
+BOOTPROTO="static"
+IPADDR="192.168.60.250"
+NETMASK="255.255.255.0"
+ONBOOT="yes"
+TYPE="Bridge"
+NM_CONTROLLED="no"
 ```
 
-Chạy `systemctl restart network` update lại cấu hình.
-Kiểm tra lại cấu hình mạng ta thấy đã nhận bridge vlan172 : 
+Tương tự cho sub interface Vlan660 và bridge vlan661 :
 
-![6](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/6.png)
+```
+vi /etc/sysconfig/network-scripts/ifcfg-em3.661
+DEVICE=em3.661
+BOOTPROTO=none
+ONBOOT=yes
+VLAN=yes
+BRIDGE=vlan661
+TYPE=Ethernet
+NM_CONTROLLED=no
 
-## Publish VPS với vlan172
 
-Tiến hành tạo mới VPS như bình thường, sau khi cài đặt xong, vào cấu hình IP cho VPS theo dải vlan172, sau khi cấu hình xong kiểm tra lại như ảnh
+vi /etc/sysconfig/network-scripts/ifcfg-vlan661
+DEVICE="vlan661"
+BOOTPROTO="static"
+IPADDR="192.168.61.250"
+NETMASK="255.255.255.0"
+ONBOOT="yes"
+TYPE="Bridge"
+NM_CONTROLLED="no"
+```
 
-![7](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/7.png)
-
-SSH VPS từ MobaXtem qua vlan172
-
-![8](https://github.com/laitiennhanhoa/Thu-viec-tai-Nhan-Hoa/blob/main/Ảo_hóa_KVM/image/8.png)
+Restar lại network hoặc `ifdown vlan661 && ifup vlan661` từng sub interface và vlan tương ứng.
+Cấu hình lại IP từng máy ảo VM cho phù hợp, sau đó ping thử theo từng vlan tương ứng.
 
 ## Tạo Template và Snapshot trong KVM
 
