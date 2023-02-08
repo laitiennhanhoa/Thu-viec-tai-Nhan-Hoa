@@ -77,3 +77,43 @@ Với con SW Cisco3750 kia em bố trí lab cho anh:
 |Buộc int là trunk vô điều kiện. Có thể chọn chế độ khác là access và dynamic.|	Switch(config-if)#switchport mode trunk|
 |Gán thủ công switch vào miền VTP. Switch tự động trở thành 1 phần của miền VTP nếu nó đang trong miền “null” và nhận VTP frame.|	Switch(config)#vtp domain lab|
 |Thay đổi VTP mode từ chế độ mặc định là server sang client. Trong client mode thì không thay đổi được nữa.|	Switch(config)#vtp mode client|
+
+
+## Các lệnh đặc quyền (Privilege Commands) trên Switch
+
+|Mô tả|	Lệnh|
+| ----------- | ----------- |
+|Bật hộp thoại setup tự động khi thiết bị khởi động mà không có cấu hình.|	Switch#setup|
+|Displays the config held in DRAM. Which is lost if not copy run start command is not used: Hiển thị cấu hình lưu trong DRAM. Cấu hình này bị mất khi lệnh not copy run start không được sử dụng.|	Switch#show running-config|
+|Displays the NVRAM (None volatile) config: Hiển thị cấu hình NVRAM.|	Switch#show startup-config|
+|Saves the config: Lưu cấu hình, nếu không có lệnh này tất cả các thay đổi, cấu hình sẽ bị mất.|	Switch#copy running-config startup-config|
+|Saves the running config to a TFTP server: Lưu cấu hình đang chạy vào TFTP server.|	Switch#copy running-config tftp|
+|Copies IOS files to a TFTP server: Sao chép file IOS vào TFTP server.|	Switch#copy flash tftp|
+|Copies files from a TFTP server the device flash: Copy file từ TFTP vào thiết bị flash.|	Switch#copy tftp flash|
+|Erase the config held in NVRAM: Xóa cấu hình lưu trong VNRAM. Nếu thực hiện lệnh này kèm với reload thì tất cả cấu hình sẽ bị mất.|	Switch#erase startup-config|
+|Reboots the device: Khởi động lại switch.|	Switch#reload|
+|Abort sequence: Hủy một lệnh, thủ tục|	<Shift> <Ctrl> 6|
+|Suspend Telnet Session: Tạm dừng phiên telnet|	Nhấn cùng lúc <Shift> <Ctrl> 6, thả hết các phím ra và nhấn ngay x|
+|Show the current sessions: Xem phiên hiện tại, phiên nào có * là phiên hiện hoạt.|	Switch#show sessions|
+|Forcible closes a telnet session: Buộc đóng một phiên telnet.|	Switch#disconnect|
+|Set the device local clock: Thiết lập giờ địa phương cho thiết bị. Lệnh này không được thực hiện trong chế độ cấu hình.|	Switch#clock set 10:00:00 april 2 2008|
+|Display the IOS version along with other useful info: Xem phiên bản IOS và các thông tin hữu ích khác như uptime hệ thống, cấu hình register…|	Switch#show version|
+|Xem nội dung file của flash.|	Switch#show flash|
+|Xem giờ.|	Switch#show clock|
+|Xem user hiện đang đăng nhập.|	Switch#show users|
+|By default displays the last 10 commands: Xem 10 lệnh vừa dùng.|	Switch#show history|
+|Displays the ARP cache: Xem cache ARP.|	Switch#show arp|
+|Displays the spanning tree status on vlan 1: Xem trạng thái spanning tree trên vlan 1.|	Switch#show spanning-tree vlan 1|
+|Lists all the configured vlans: Liệt kê tất cả vlan đã cấu hình.|	Switch#show vlan|
+|Displays VTP info such as VTP mode, VTP domain, VTP counter: Xem thông tin VTP như chế độ, miền, bộ đếm.|	Switch#sh vtp status|
+|Ping selected address: Ping một địa chỉ IP.|	Switch#ping 10.1.1.1|
+|Extended ping: Phải thực hiện trong chế độ privilege.|	Switch#ping|
+|Display the interface status: Hiển thị trạng thái interface.|	Switch#show int fa0/1|
+|Displays the vlan status and the IP address VLAN 1 (often the management vlan): Xem trạng thái VLAN 1.|	Switch#show interfaces vlan 1|
+|Displays a list of CDP neighbours: Xem danh sách CDP.|	Switch#show cdp neighbors|
+|Extended information on the above: Xem nhiều thông tin hơn lệnh trên.|	Switch#show cdp neighbors details|
+|Display CDP packets as they arrive: Xem các gói CDP khi chúng đến.|	Switch#debug cdp packets|
+|Display ping packets as they arrive: Hiển thị các gói ping khi chúng đến.|	Switch#debug icmp packets|
+|Display switch MAC Addresses table. These entries are learnt from the source mac address in the Ethernet frames: Xem bảng địa chỉ MAC, lấy từ địa chỉ MAC nguồn trong Ethernet frame.|	Switch#show mac address-table|
+
+
