@@ -54,14 +54,12 @@ Với con SW Cisco3750 kia em bố trí lab cho anh:
 |Sets the unencrypted enable password (Đặt mật khẩu không mã hóa)|	Switch(config)#enable password cisco|
 |Enable password encryption on all clear text password within the configuration file (mã hóa tất cả các mật khẩu trong file cấu hình)|	Switch(config)#service password-encryption|
 |Configure a Message Of The Banner, with an ending character of $ (cài thông báo cho banner, kết thúc bằng $)|	Switch(config)#banner motd $|
-|Assign IP address to vlan (gán ip cho vlan)|	Switch(config)#int vlan 1   
-Switch(config-if)#ip addr 172.22.1.11 255.255.255.0|
+|Assign IP address to vlan (gán ip cho vlan)|	Switch(config)#int vlan 1   Switch(config-if)#ip addr 172.22.1.11 255.255.255.0|
 |Assign Default gateway, note the mode: gán default gateway.|	Switch(config)#ip default-gateway 10.1.1.1|
 |Select one interface: chọn 1 interface.|	Switch(config)#int fa0/1|
 |Select a range of interfaces (version dependant): chọn 1 dải interface.|	Switch(config)#int range fa0/1 – 12|
 |Set the interface description: Viết mô tả cho interface.|	Switch(config-if)#description|
-|Add vlan using config mode: thêm vlan sử dụng config mode.|	switch(config)#vlan 11
-switch(config-vlan)#name test|
+|Add vlan using config mode: thêm vlan sử dụng config mode.|	switch(config)#vlan 11 switch(config-vlan)#name test|
 |Configure Interface fa0/1 @ speed 100 Mbps and full duplex: Cấu hình int fa0/1 tốc độ 100Mbps và full duplex.|	Switch(config-if)#speed 100 Switch(config-if)#duplex full|
 |Assign interface to vlan: gán int cho vlan.|	switch(config-if)#switchport access vlan 11|
 |Enable Port Security: Bật bảo mật port.|	Switch(config-if)#switchport mode access Switch(config-if)#switchport port-security Switch(config-if)#switchport port-security mac-address sticky|
